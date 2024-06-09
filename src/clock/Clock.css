@@ -1,0 +1,40 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+#clock {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    text-align: center;
+    color: #daf6ff;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+    .time {
+        letter-spacing: 0.05em;
+        font-size: 8rem;
+        padding: 0.25rem 0;
+    }
+    .date {
+        letter-spacing: 0.1em;
+        font-size: 2.5rem;
+    }
+    .text {
+        letter-spacing: 0.1em;
+        font-size: 0.75rem;
+        padding: 1.25rem 0 0;
+    }
+    .seconds {
+        letter-spacing: 0.1em;
+        font-size: 4rem;
+    }
+    @media only screen and (max-width: 600px) {
+        .time {
+            font-size: 7rem;
+        }
+        .date {
+            font-size: 1.75rem;
+        }
+        .seconds {
+            font-size: 3rem;
+        }
+    }
+}
