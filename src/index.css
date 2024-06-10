@@ -14,5 +14,6 @@ code {
 
 a {
   all: unset;
+  cursor: pointer;
 }
 
