@@ -15,11 +15,12 @@ const CARD_LINKS = {
 };
 
 let mockTime = undefined;
-// mockTime = dayjs("2018-04-04T04:44:00.000");
+// mockTime = dayjs("2018-04-04T04:43:55.000");
 
 function App() {
   const [dateTime, setDateTime] = useState(() => getTime());
   const [cardLink, setCardLink] = useState(null);
+  const [showCard, setShowCard] = useState(false);
   // A bit hacky, but make sure the elements are hidden a bit so the animation plays
   // even if site is opened during the relevancy.
   const [isInitialSecond, setIsInitialSecond] = useState(true);
@@ -32,8 +33,15 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("showCard")) {
+      setShowCard(true);
+    }
+  }, []);
+
   const isRelevancy = isEverythingRelevant(dateTime) && !isInitialSecond;
-  if (isRelevancy && cardLink === null) {
+  if (showCard && isRelevancy && cardLink === null) {
     setCardLink(CARD_LINKS[dateTime.format("hmm")] ?? CARD_LINKS["1111"]);
   }
 
